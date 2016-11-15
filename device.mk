@@ -70,7 +70,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Charger
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.usb.vid=2717 \
-    ro.usb.id.charge=F006 \
+    ro.usb.id.midi=90BA \
+    ro.usb.id.midi_adb=90BB \
     ro.usb.id.mtp=ff60 \
     ro.usb.id.mtp_adb=ff68 \
     ro.usb.id.ptp=ff10 \
@@ -88,7 +89,7 @@ PRODUCT_PACKAGES += \
 
 # Widevine DRM symbol, boringssl-compat subset
 PRODUCT_PACKAGES += \
-    libshim_openinit
+    libshim_boringssl
 
 # Connectivity Engine support (CNE)
 PRODUCT_PACKAGES += \
@@ -157,6 +158,10 @@ PRODUCT_PACKAGES += \
 # Build libstlport for legacy blobs
 PRODUCT_PACKAGES += \
     libstlport
+
+# On boot audio lineout config
+PRODUCT_PACKAGES += \
+    init.lineout.sh
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/spn-conf.xml:system/etc/spn-conf.xml
